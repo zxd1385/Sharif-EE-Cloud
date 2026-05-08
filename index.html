@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharif EE Cloud - فایل‌های عمومی</title>
+    
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="/css/bootstrap-icon.css">
+    <!-- Vazirmatn Font -->
+    <!-- <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"> -->
+    
+    <style>
+
+/* Dark Mode */
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .app-header {
+    background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.8) 100%);
+    border-bottom-color: rgba(255,193,7,0.1);
+}
+
+body.dark-mode .logo-title {
+    background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+body.dark-mode .status-indicator,
+body.dark-mode .quick-stat,
+body.dark-mode .theme-toggle {
+    background: rgba(30,41,59,0.8);
+    border-color: #334155;
+    color: #94a3b8;
+}
+
+body.dark-mode .file-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .file-card .file-name {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .file-card .file-meta {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .stats-bar .stat-item {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .search-input {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: #64748b !important;
+}
+body.dark-mode .quick-stat {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .status-indicator {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .item-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .item-card.file-card {
+    border-right-color: #334155;
+}
+
+body.dark-mode .item-name {
+    color: #e2e8f0;
+}
+
+body.dark-mode .search-input {
+    background: #1e293b;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: #64748b;
+}
+
+body.dark-mode .stat-pill {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .breadcrumb-item {
+    color: #94a3b8;
+}
+
+body.dark-mode .breadcrumb-item.active {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .back-btn {
+    background: #1e293b;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .back-btn:hover {
+    background: #ffc107;
+    color: #1e293b;
+    border-color: #ffc107;
+}
+
+
+        :root {
+            --primary: #ffc107;
+            --primary-dark: #e0a800;
+            --primary-light: #fff8e1;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(255,193,7,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(99,102,241,0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Header */
+        
+        /* ========== ENHANCED HEADER ========== */
+.app-header {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-bottom: 1px solid rgba(255,193,7,0.15);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    gap: 20px;
+}
+
+/* Logo */
+.app-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #1e293b;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.app-logo:hover {
+    transform: scale(1.03);
+}
+
+.logo-icon-wrapper {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255,193,7,0.4);
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(255,193,7,0.4); }
+    50% { box-shadow: 0 4px 25px rgba(255,193,7,0.7); }
+}
+
+.logo-icon-wrapper i {
+    color: #1e293b;
+    font-size: 1.4rem;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-title span {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16,185,129,0.7);
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+/* Quick Stats Pills */
+.quick-stats {
+    display: flex;
+    gap: 6px;
+}
+
+.quick-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: #64748b;
+    cursor: default;
+    transition: all 0.2s;
+}
+
+.quick-stat i {
+    font-size: 0.9rem;
+}
+
+.quick-stat.files-stat i { color: #3b82f6; }
+.quick-stat.size-stat i { color: #f59e0b; }
+
+.quick-stat:hover {
+    border-color: #ffc107;
+    background: #fff8e1;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #1e293b;
+    color: #ffc107;
+    border-color: #1e293b;
+    transform: rotate(30deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .quick-stats {
+        display: none;
+    }
+    
+    .status-indicator span:last-child {
+        display: none;
+    }
+    
+    .status-indicator {
+        padding: 8px 10px;
+    }
+    
+    .logo-subtitle {
+        display: none;
+    }
+    
+    .logo-icon-wrapper {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .logo-title {
+        font-size: 1rem;
+    }
+}
+        /* Search Bar */
+        .search-wrapper {
+            position: relative;
+            margin: 24px 0;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 14px 48px 14px 20px;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-family: 'Vazirmatn', sans-serif;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255,193,7,0.15);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #64748b;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .stat-item i {
+            color: var(--primary);
+        }
+        
+        /* File Cards Grid */
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        
+        /* File Card */
+        .file-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), #ff9800);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .file-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        
+        .file-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .file-icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        
+        .icon-pdf { background: #fee2e2; color: #ef4444; }
+        .icon-video { background: #dbeafe; color: #3b82f6; }
+        .icon-image { background: #d1fae5; color: #10b981; }
+        .icon-zip { background: #fef3c7; color: #f59e0b; }
+        .icon-code { background: #e0e7ff; color: #6366f1; }
+        .icon-default { background: #f1f5f9; color: #64748b; }
+        
+        .file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .file-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark);
+            word-break: break-all;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+        
+        .file-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            flex-wrap: wrap;
+        }
+        
+        .file-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-action {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .btn-download {
+            background: var(--primary);
+            color: #1e293b;
+        }
+        
+        .btn-download:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,193,7,0.4);
+        }
+        
+        .btn-view {
+            background: #f1f5f9;
+            color: #475569;
+        }
+        
+        .btn-view:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-play {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+        
+        .btn-play:hover {
+            background: #bfdbfe;
+            transform: translateY(-2px);
+        }
+        
+        /* Loading State */
+        .loading-container {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            color: #cbd5e1;
+            display: block;
+            margin-bottom: 16px;
+        }
+        
+        .empty-state p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #ef4444;
+        }
+        
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .custom-toast {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Video Modal Overlay */
+        .video-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .video-overlay.active {
+            display: flex;
+        }
+        
+        .video-container {
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+        
+        .video-container video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .video-title {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .close-video {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .close-video:hover {
+            background: rgba(255,0,0,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .files-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                justify-content: center;
+            }
+            
+            .app-logo {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ffc107, #ff9800);
+            border-radius: 3px;
+        }
+
+
+
+        /* ========== TRANSITIONS & ANIMATIONS ========== */
+
+/* Fade In Up - for cards appearing */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In - simple fade */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide In Right - for header elements */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide In Down - for top elements */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scale In - for icons and badges */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========== APPLY ANIMATIONS TO ELEMENTS ========== */
+
+/* Cards - fade in up with stagger effect */
+.file-card {
+    animation: fadeInUp 0.5s ease forwards !important;
+}
+
+/* Each card delayed slightly for cascade effect */
+.file-card:nth-child(1) { animation-delay: 0.05s !important; }
+.file-card:nth-child(2) { animation-delay: 0.1s !important; }
+.file-card:nth-child(3) { animation-delay: 0.15s !important; }
+.file-card:nth-child(4) { animation-delay: 0.2s !important; }
+.file-card:nth-child(5) { animation-delay: 0.25s !important; }
+.file-card:nth-child(6) { animation-delay: 0.3s !important; }
+.file-card:nth-child(7) { animation-delay: 0.35s !important; }
+.file-card:nth-child(8) { animation-delay: 0.4s !important; }
+.file-card:nth-child(9) { animation-delay: 0.45s !important; }
+.file-card:nth-child(10) { animation-delay: 0.5s !important; }
+.file-card:nth-child(n+11) { animation-delay: 0.55s !important; }
+
+/* Header slides down */
+.app-header {
+    animation: slideInDown 0.6s ease forwards;
+}
+
+/* Stats bar fades in */
+.stats-bar {
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Search bar slides in */
+.search-wrapper {
+    animation: slideInDown 0.5s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Stats pills pop in one by one */
+.stat-item:nth-child(1) { 
+    animation: scaleIn 0.4s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+.stat-item:nth-child(2) { 
+    animation: scaleIn 0.4s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+.stat-item:nth-child(3) { 
+    animation: scaleIn 0.4s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* File icon wrappers pop in */
+.file-icon-wrapper {
+    animation: scaleIn 0.3s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* Buttons hover effect */
+.btn-action {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-action:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* File cards hover */
+.file-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.file-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12) !important;
+}
+
+/* Smooth page load */
+main {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Search input focus transition */
+.search-input {
+    transition: all 0.3s ease !important;
+}
+
+/* Quick stats hover */
+.quick-stat {
+    transition: all 0.3s ease !important;
+}
+
+.quick-stat:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* Status dot pulse already exists, make it smoother */
+.status-dot {
+    transition: all 0.3s ease;
+}
+
+/* Theme toggle rotation */
+.theme-toggle i {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover i {
+    transform: rotate(45deg);
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <!-- Enhanced Header -->
+<header class="app-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <!-- Logo -->
+            <a href="#" class="app-logo" onclick="navigateTo(''); return false;">
+                <div class="">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-title">Sharif <span>EE</span> Cloud</div>
+                    <div class="logo-subtitle">سامانه ابری دانشکده برق</div>
+                </div>
+            </a>
+            
+            <!-- Right Side -->
+            <div class="header-actions">
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="quick-stat files-stat" title="تعداد فایل‌ها">
+                        <i class="bi bi-file-earmark"></i>
+                        <span id="headerFileCount">--</span>
+                    </div>
+                    <div class="quick-stat size-stat" title="حجم کل">
+                        <i class="bi bi-hdd-stack"></i>
+                        <span id="headerTotalSize">--</span>
+                    </div>
+                </div>
+                
+                <!-- Server Status -->
+                <div class="status-indicator" title="وضعیت سرور">
+                    <span class="status-dot"></span>
+                    <span>آنلاین</span>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" onclick="toggleTheme()" title="تغییر تم">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main class="container py-4">
+        
+        <!-- Search -->
+        <div class="search-wrapper">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" 
+                   class="search-input" 
+                   id="searchInput" 
+                   placeholder="جستجو در فایل‌ها... (Ctrl+K)">
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="bi bi-files"></i>
+                <span id="totalFiles">۰ فایل</span>
+            </div>
+            <div class="stat-item">
+                <i class="bi bi-hdd-stack"></i>
+                <span id="totalSize">۰ مگابایت</span>
+            </div>
+            <div class="stat-item">
+                <i class="bi bi-clock-history"></i>
+                <span id="lastUpdate">به‌روزرسانی: --</span>
+            </div>
+        </div>
+        
+        <!-- Files Grid -->
+        <div class="files-grid" id="filesGrid">
+            <!-- Loading -->
+            <div class="loading-container" style="grid-column: 1/-1;">
+                <div class="loader"></div>
+                <p style="color: #94a3b8;">در حال دریافت لیست فایل‌ها...</p>
+            </div>
+        </div>
+        
+    </main>
+    
+    <!-- Video Modal -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-container">
+            <button class="close-video" id="closeVideo">✕</button>
+            <div class="video-title" id="videoTitle"></div>
+            <video id="videoPlayer" controls playsinline>
+                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+            </video>
+        </div>
+    </div>
+    
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    
+
+<script>
+$(document).ready(function() {
+    
+    // ========== CONFIG ==========
+    const API_URL = 'https://c829269.parspack.net/c829269';
+    let allFiles = [];
+    
+    // ========== HEADER FUNCTIONS ==========
+    function updateHeaderStats() {
+        const totalFiles = allFiles.length;
+        const totalSize = allFiles.reduce((sum, f) => sum + (f.size || 0), 0);
+        $('#headerFileCount').text(totalFiles.toLocaleString('fa-IR'));
+        $('#headerTotalSize').text(formatSize(totalSize));
+    }
+    
+    // Theme toggle
+    window.toggleTheme = function() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            if (isDark) {
+                icon.classList.remove('bi-moon-stars');
+                icon.classList.add('bi-sun-fill');
+            } else {
+                icon.classList.remove('bi-sun-fill');
+                icon.classList.add('bi-moon-stars');
+            }
+        }
+    };
+    
+    // Load saved theme
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.classList.remove('bi-moon-stars');
+            icon.classList.add('bi-sun-fill');
+        }
+    }
+    
+    // Logo click - reload page
+    window.navigateTo = function(path) {
+        location.reload();
+    };
+    
+    window.goBack = function() {
+        window.history.back();
+    };
+    
+    // ========== LOAD FILES ==========
+    loadFiles();
+    
+    // Replace your existing loadFiles function with this:
+async function loadFiles() {
+    console.log('📡 Fetching data from API...');
+    
+    try {
+        const response = await fetch(API_URL);
+        console.log('📥 Response status:', response.status);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const xmlText = await response.text();
+        console.log('📄 XML received, length:', xmlText.length);
+        
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+        
+        const parseError = xmlDoc.querySelector('parsererror');
+        if (parseError) {
+            console.error('XML Parse Error:', parseError.textContent);
+            throw new Error('XML Parse Error');
+        }
+        
+        const keys = Array.from(xmlDoc.querySelectorAll('Key')).map(el => el.textContent);
+        const lastModified = Array.from(xmlDoc.querySelectorAll('LastModified')).map(el => el.textContent);
+        const sizes = Array.from(xmlDoc.querySelectorAll('Size')).map(el => el.textContent);
+        
+        console.log('✅ Found', keys.length, 'items');
+        
+        // Process files
+        const rawFiles = keys
+            .map((key, index) => ({
+                key: key,
+                filename: key.split('/').pop(),
+                path: key,
+                lastModified: lastModified[index] || '',
+                size: parseInt(sizes[index]) || 0
+            }))
+            .filter(file => file.filename && file.filename.includes('.'));
+        
+        console.log('✅ Filtered to', rawFiles.length, 'files');
+        
+        // Store all files
+        allFiles = rawFiles;
+        
+        // Clear grid and show count
+        const grid = $('#filesGrid');
+        grid.empty();
+        
+        // Update stats immediately
+        updateHeaderStats();
+        updateStats();
+        
+        // ========== PROGRESSIVE RENDERING ==========
+        // Show files one by one with a small delay for visual effect
+        renderFilesProgressively(rawFiles, grid);
+        
+    } catch (error) {
+        console.error('❌ Error loading files:', error);
+        showError('خطا در بارگذاری اطلاعات. لطفا دوباره تلاش کنید.');
+    }
+}
+
+// NEW: Progressive rendering function
+function renderFilesProgressively(files, grid) {
+    let index = 0;
+    const batchSize = 6; // Show 6 files at a time
+    const delay = 50;     // 50ms delay between batches
+    
+    function renderBatch() {
+        // Get next batch
+        const batch = files.slice(index, index + batchSize);
+        
+        if (batch.length === 0) {
+            // All done!
+            console.log('✅ All files rendered!');
+            
+            // Show empty state if no files
+            if (files.length === 0) {
+                grid.append(`
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <i class="bi bi-inbox"></i>
+                        <p>هیچ فایلی یافت نشد</p>
+                    </div>
+                `);
+            }
+            return;
+        }
+        
+        // Render this batch
+        batch.forEach(file => {
+            const card = createFileCard(file);
+            grid.append(card);
+        });
+        
+        // Update counter
+        index += batchSize;
+        const shown = Math.min(index, files.length);
+        console.log(`📄 Rendered ${shown}/${files.length} files`);
+        
+        // Schedule next batch
+        setTimeout(renderBatch, delay);
+    }
+    
+    // Start rendering
+    renderBatch();
+}
+
+// NEW: Create single file card (extracted from renderFiles)
+function createFileCard(file) {
+    const ext = file.filename.split('.').pop().toLowerCase();
+    const fileUrl = `${API_URL}/${encodeURIComponent(file.key)}`;
+    const date = new Date(file.lastModified).toLocaleDateString('fa-IR');
+    const size = formatSize(file.size);
+    
+    const iconClass = getIconClass(ext);
+    const iconName = getIconName(ext);
+    
+    let actionButtons = `
+        <a href="${fileUrl}" class="btn-action btn-download" download target="_blank">
+            <i class="bi bi-download"></i> دانلود
+        </a>`;
+    
+    if (ext === 'pdf') {
+        actionButtons += `
+            <a href="https://docs.google.com/viewer?url=${encodeURIComponent(fileUrl)}&embedded=true" 
+               class="btn-action btn-view" target="_blank">
+                <i class="bi bi-eye"></i> مطالعه
+            </a>`;
+    }
+    
+    if (['mp4', 'mkv', 'mov', 'webm', 'avi'].includes(ext)) {
+        actionButtons += `
+            <button class="btn-action btn-play" onclick="playVideo('${fileUrl.replace(/'/g, "\\'")}', '${escapeHtml(file.filename)}')">
+                <i class="bi bi-play-circle"></i> تماشا
+            </button>`;
+    }
+    
+    return `
+        <div class="file-card">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+                <div class="file-icon-wrapper ${iconClass}">
+                    <i class="bi ${iconName}"></i>
+                </div>
+                <div class="file-info">
+                    <div class="file-name" title="${escapeHtml(file.filename)}">${escapeHtml(file.filename)}</div>
+                    <div class="file-meta">
+                        <span><i class="bi bi-calendar3"></i> ${date}</span>
+                        <span><i class="bi bi-hdd"></i> ${size}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="file-actions">
+                ${actionButtons}
+            </div>
+        </div>
+    `;
+}
+
+// Keep your existing renderFiles function for search filtering (it uses createFileCard now)
+function renderFiles(files) {
+    const grid = $('#filesGrid');
+    grid.empty();
+    
+    if (files.length === 0) {
+        grid.append(`
+            <div class="empty-state" style="grid-column: 1/-1;">
+                <i class="bi bi-inbox"></i>
+                <p>هیچ فایلی یافت نشد</p>
+            </div>
+        `);
+        return;
+    }
+    
+    files.forEach(file => {
+        grid.append(createFileCard(file));
+    });
+}
+    // ========== SEARCH ==========
+    $('#searchInput').on('input', function() {
+        const query = $(this).val().toLowerCase();
+        filterFiles(query);
+    });
+    
+    function filterFiles(query) {
+        if (!query) {
+            renderFiles(allFiles);
+            updateStats(allFiles);
+            return;
+        }
+        
+        const filtered = allFiles.filter(file => 
+            file.filename.toLowerCase().includes(query)
+        );
+        
+        renderFiles(filtered);
+        updateStats(filtered);
+    }
+    
+    function updateStats(files = allFiles) {
+        $('#totalFiles').text(`${files.length.toLocaleString('fa-IR')} فایل`);
+        
+        const totalBytes = files.reduce((sum, f) => sum + f.size, 0);
+        $('#totalSize').text(formatSize(totalBytes));
+        
+        const now = new Date().toLocaleDateString('fa-IR');
+        $('#lastUpdate').text(`به‌روزرسانی: ${now}`);
+    }
+    
+    // ========== KEYBOARD SHORTCUTS ==========
+    $(document).on('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            $('#searchInput').focus();
+        }
+        if (e.key === 'Escape') {
+            closeVideo();
+        }
+    });
+    
+    // ========== VIDEO MODAL ==========
+    $('#closeVideo').on('click', closeVideo);
+    $('#videoOverlay').on('click', function(e) {
+        if (e.target === this) closeVideo();
+    });
+    
+    function closeVideo() {
+        $('#videoOverlay').removeClass('active');
+        const player = $('#videoPlayer')[0];
+        if (player) {
+            player.pause();
+            player.src = '';
+        }
+    }
+    
+    // ========== HELPERS ==========
+    function getIconClass(ext) {
+        const classes = {
+            'pdf': 'icon-pdf',
+            'mp4': 'icon-video', 'mkv': 'icon-video', 'mov': 'icon-video', 'webm': 'icon-video',
+            'jpg': 'icon-image', 'jpeg': 'icon-image', 'png': 'icon-image', 'gif': 'icon-image',
+            'zip': 'icon-zip', 'rar': 'icon-zip', '7z': 'icon-zip',
+            'js': 'icon-code', 'py': 'icon-code', 'html': 'icon-code', 'css': 'icon-code',
+            'c': 'icon-code', 'cpp': 'icon-code', 'java': 'icon-code'
+        };
+        return classes[ext] || 'icon-default';
+    }
+    
+    function getIconName(ext) {
+        const icons = {
+            'pdf': 'bi-file-earmark-pdf',
+            'mp4': 'bi-file-earmark-play', 'mkv': 'bi-file-earmark-play', 'mov': 'bi-file-earmark-play',
+            'jpg': 'bi-file-earmark-image', 'png': 'bi-file-earmark-image',
+            'zip': 'bi-file-earmark-zip', 'rar': 'bi-file-earmark-zip',
+            'js': 'bi-file-earmark-code', 'py': 'bi-file-earmark-code',
+            'html': 'bi-file-earmark-code', 'css': 'bi-file-earmark-code',
+            'txt': 'bi-file-earmark-text',
+            'doc': 'bi-file-earmark-word', 'docx': 'bi-file-earmark-word',
+            'xls': 'bi-file-earmark-excel', 'xlsx': 'bi-file-earmark-excel',
+            'ppt': 'bi-file-earmark-ppt', 'pptx': 'bi-file-earmark-ppt'
+        };
+        return icons[ext] || 'bi-file-earmark';
+    }
+    
+    function formatSize(bytes) {
+        if (!bytes || bytes === 0) return '۰ بایت';
+        const k = 1024;
+        const sizes = ['بایت', 'کیلوبایت', 'مگابایت', 'گیگابایت'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)).toLocaleString('fa-IR') + ' ' + sizes[i];
+    }
+    
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    function showError(message) {
+        $('#filesGrid').html(`
+            <div class="error-state" style="grid-column: 1/-1;">
+                <i class="bi bi-exclamation-triangle" style="font-size: 3rem; display: block; margin-bottom: 10px;"></i>
+                <p>${message}</p>
+                <button class="btn-action btn-download" onclick="location.reload()" style="margin-top: 12px;">
+                    <i class="bi bi-arrow-clockwise"></i> تلاش مجدد
+                </button>
+            </div>
+        `);
+    }
+    
+});
+
+// ========== GLOBAL FUNCTIONS ==========
+function playVideo(url, title) {
+    $('#videoTitle').text(title);
+    $('#videoPlayer').attr('src', url);
+    $('#videoOverlay').addClass('active');
+    $('#videoPlayer')[0].play().catch(function() {
+        console.log('Video play requires user interaction');
+    });
+}
+</script>
+
+</body>
+</html>
